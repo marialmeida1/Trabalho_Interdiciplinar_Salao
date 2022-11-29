@@ -13,7 +13,7 @@ $verSenhaPatrao = mysqli_query($conn, "SELECT * FROM gerente WHERE gerente.senha
 
 
 if ((mysqli_num_rows($verEmail) > 0) && (mysqli_num_rows($verSenhaPatrao) > 0)) {
-    echo "<script language='javascript'type='text/javascript'>window.location.href='../Pagina Admin/index.html'</script>";
+    echo "<script language='javascript'type='text/javascript'>window.location.href='../PaginaAdmin/index.html'</script>";
 } else {
     if ((mysqli_num_rows($verEmail) > 0) && (mysqli_num_rows($verSenhaFuncionario) > 0)) {
         echo "To no funcionario";
