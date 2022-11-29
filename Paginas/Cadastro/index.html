@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Salon - Cadastro</title>
+    <link rel="shortcut icon" href="Logo/Letra.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <!--Letra-->
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
+
+    <!--Link Redicerionar-->
+    <script src="/jsRedireciona.js"></script>
+
+</head>
+
+<body>
+
+    <section class="h-100 gradient-form" style="background-color: #eadfdb;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card rounded-3 text-black" id="sombra">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+
+                                    <div class="text-center">
+
+                                        <h4 class="mt-1 mb-5 pb-1"><b> Cadastrar</b></h4>
+                                    </div>
+
+                                    <form method="post" action="../BancoDeDados/cadastro.php">
+
+
+
+                                        <p>Insira suas informações</p>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="nome" class="form-control" placeholder="Nome" name="nome" />
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="email" class="form-control" placeholder="Email" name="email" />
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <input type="tel" id="telefone" class="form-control" placeholder="Telefone" name="tel" />
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="senha" class="form-control" placeholder="Senha" name="senha" />
+                                        </div>
+
+
+                                        <p>Endereço</p>
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="cidade" class="form-control" placeholder="Cidade" name="city" />
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="cidade" class="form-control" placeholder="Rua" name="rua" />
+                                        </div>
+                                        <div class="input-group">
+
+                                            <input type="text" id="bairro" class="form-control" placeholder="Bairro" style=" margin: auto; margin-right: 10%;" name="bairro" />
+
+
+                                            <input type="number" id="numendereco" class="form-control" placeholder="Numero" style=" margin: auto;" name="numCasa" />
+                                        </div>
+                                        <br>
+
+                                        <div class="text-center pt-1 mb-5 pb-1">
+                                            <button class="btn btn" type="submit" id="colorButton"> Criar nova
+                                                conta</button>
+                                        </div>
+
+                                        <div class="d-flex align-items-center justify-content-center pb-4">
+                                            <p class="mb-0 me-2">Já possui uma conta?</p>
+                                            <button type="button" id="colorButton" class="btn btn" onclick="login()">Entrar</button>
+                                        </div>
+
+                                    </form>
+
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                <div id="divlogo">
+                                    <img src="img/LogoBranca.svg" style="width: 40%" alt="logo">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function login() {
+            window.location.href = "../Login/index.html"
+        }
+    </script>
+
+
+</body>
+
+</html>
