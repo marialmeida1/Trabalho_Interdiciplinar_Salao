@@ -1,0 +1,42 @@
+#caixaFunc {
+    background-color: #eadfdb;
+    width: 100%;
+    font-weight: bold;
+}
+
+#tamanho {
+    width: 100%;
+}
+
+#paginacao {
+    width: 100%;
+    font-weight: bold;
+    background-color: #eadfdb;
+}
+
+#link {
+    color: #b44a60;
+    text-decoration: underline;
+}
+
+#link1 {
+    color: #722e43;
+}
+
+#box {
+    border: 4px solid;
+    margin: 10px;
+}
+
+#box1 {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#deleta {
+    font-size: medium;
+    font-weight: bold;
+    color: #b44a60;
+}
