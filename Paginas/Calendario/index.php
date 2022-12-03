@@ -15,8 +15,8 @@ date_default_timezone_set('America/Sao_Paulo');
 $database = new Database();
 $db = $database->conectar();
 
-$sql = "SELECT id_evento, titulo, descricao, inicio, termino, cor, fk_id_destinatario, fk_id_remetente, status FROM eventos as e
-	LEFT JOIN convites as c ON e.id_evento = c.fk_id_evento
+$sql = "SELECT id_evento, titulo, cor, inicio, termino, fk_id_destinatario, fk_id_remetente, status FROM evento as e
+	LEFT JOIN convite as c ON e.id_evento = c.fk_id_evento
 	Where fk_id_usuario = $id_user";
 $req = $db->prepare($sql);
 $req->execute();

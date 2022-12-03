@@ -18,7 +18,7 @@ if ((mysqli_num_rows($verEmail) > 0) && (mysqli_num_rows($verSenhaPatrao) > 0)) 
 
 
     if ((mysqli_num_rows($verEmail) > 0) && (mysqli_num_rows($verSenhaFuncionario) > 0)) {
-        echo "<script language='javascript'type='text/javascript'>window.location.href='../CalendarioFunc/index.php'</script>";
+        echo "<script language='javascript'type='text/javascript'>window.location.href='../Calendario/index.php'</script>";
     } else {
         $verSenha = mysqli_query($conn, "SELECT * FROM cliente WHERE cliente.senha = MD5('$senha') limit 1");
 

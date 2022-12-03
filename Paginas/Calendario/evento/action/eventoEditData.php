@@ -13,7 +13,7 @@
 		$inicio= date('Y/m/d H:i:s', strtotime($inicio));
 		$termino= date('Y/m/d H:i:s', strtotime($termino));
 
-		$sql = "UPDATE eventos SET  inicio = '$inicio', termino = '$termino' WHERE id_evento = $id_evento ";
+		$sql = "UPDATE evento SET  inicio = '$inicio', termino = '$termino' WHERE id_evento = $id_evento ";
 
 		
 		$query = $db->prepare( $sql );
@@ -32,4 +32,3 @@
 
 	}
 	//header('Location: '.$_SERVER['HTTP_REFERER']);
-?>

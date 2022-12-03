@@ -12,7 +12,7 @@
         $status = 0;
         $id_convite = $_POST['id_convite'];
 		
-        $sql = "UPDATE convites SET status = '$status' WHERE id_convite=$id_convite";
+        $sql = "UPDATE convite SET status = '$status' WHERE id_convite=$id_convite";
         
         $query = $db->prepare( $sql );
         if ($query == false) {
@@ -27,5 +27,4 @@
 
 
 	}
-	header('Location: '.$_SERVER['HTTP_REFERER']);	
-?>
+	header('Location: '.$_SERVER['HTTP_REFERER']);

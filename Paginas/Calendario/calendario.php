@@ -28,7 +28,6 @@
 				element.bind('click', function() {
 					$('#ModalEdit #id_evento').val(event.id);
 					$('#ModalEdit #titulo').val(event.title);
-					$('#ModalEdit #descricao').val(event.description);
 					$('#ModalEdit #cor').val(event.color);
 					$('#ModalEdit #convidado').val(event.fk_id_destinatario);
 					$('#ModalEdit #remetente').val(event.fk_id_remetente);
@@ -63,7 +62,6 @@
 				?> {
 						id: '<?php echo $event['id_evento']; ?>',
 						title: '<?php echo $event['titulo']; ?>',
-						description: '<?php echo $event['descricao']; ?>',
 						start: '<?php echo $start; ?>',
 						end: '<?php echo $end; ?>',
 						color: '<?php echo $event['cor']; ?>',
