@@ -4,14 +4,15 @@
 	$database = new Database();
 	$db = $database->conectar();
 
+
+	// Para deletar dados
 	if (isset($_POST['delete']) && isset($_POST['id_evento'])){
 		
 		
 		$id_evento = $_POST['id_evento'];
 		
-		$sql = "DELETE FROM evento WHERE id_evento = $id_evento";
-
-		$sql2 = "DELETE FROM convite WHERE fk_id_evento = $id_evento";
+		$sql = "DELETE FROM eventos WHERE id_evento = $id_evento";
+		$sql2 = "DELETE FROM convites WHERE fk_id_evento = $id_evento";
 		
 		$query2 = $db->prepare( $sql2 );
 		$query = $db->prepare( $sql );
@@ -27,10 +28,15 @@
 			die ('Erro ao executar');
 		}
 		
-	}else if (isset($_POST['titulo']) && isset($_POST['cor']) && isset($_POST['inicio']) && isset($_POST['termino']) && isset($_POST['id_evento'])){
+	// Para atualizar dados
+
+	// Verifica se todos os dados estão preenchidos 
+	}else if (isset($_POST['titulo']) && isset($_POST['descricao']) && isset($_POST['inicio']) && isset($_POST['termino']) && isset($_POST['cor']) && isset($_POST['id_evento'])){
 		
+		// Nomeia as variaveis
 		$id_evento = $_POST['id_evento'];
 		$titulo = $_POST['titulo'];
+		$descricao = $_POST['descricao'];
 		$inicio = $_POST['inicio'];
 		$termino = $_POST['termino'];
 		$cor = $_POST['cor'];
@@ -38,7 +44,8 @@
 		$inicio= date('Y/m/d H:i:s', strtotime($inicio));
 		$termino= date('Y/m/d H:i:s', strtotime($termino));
 		
-		$sql = "UPDATE eventos SET  titulo = '$titulo', cor = '$cor', inicio = '$inicio', termino = '$termino' WHERE id_evento = $id_evento ";
+		// Altera de acordo com as mudanças
+		$sql = "UPDATE eventos SET  titulo = '$titulo', descricao = '$descricao', inicio = '$inicio', termino = '$termino', cor = '$cor' WHERE id_evento = $id_evento ";
 		
 		$query = $db->prepare( $sql );
 		if ($query == false) {

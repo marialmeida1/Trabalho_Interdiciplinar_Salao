@@ -1,3 +1,8 @@
+<!-- 
+	Nao possui inciação de session
+-->
+
+
 <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -16,7 +21,12 @@
 						</div>
 					</div>
 
-
+					<div class="form-group">
+						<label for="descricao" class="col-sm-2 control-label">Descrição</label>
+						<div class="col-sm-10">
+							<textarea type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição"></textarea>
+						</div>
+					</div>
 
 					<div class="form-group">
 						<label for="cor" class="col-sm-2 control-label">Cor</label>
@@ -41,13 +51,16 @@
 							<select name="convidado" class="form-control" id="convidado" disabled>
 								<option value="">Ninguém</option>
 								<?php
-								$sql6 = "SELECT * FROM funcionario";
+								// Pega dados que estao no tabala usuario/cliente
+								$sql6 = "SELECT * FROM usuarios";
 								$req = $db->prepare($sql6);
 								$req->execute();
 								$linhas = $req->rowCount();
 
 								while ($dados = $req->fetch(PDO::FETCH_ASSOC)) {
-									$id_usuario = $dados['id'];
+									// Pega os dados que estao nas tabelas
+									// Inserem dentro do option
+									$id_usuario = $dados['id_usuario'];
 									$nome_usuario = $dados['nome'];
 									echo " <option value=\"$id_usuario\">$nome_usuario</option>";
 								}
@@ -63,13 +76,13 @@
 							<select name="remetente" class="form-control" id="remetente" disabled>
 								<option value="">Ninguém</option>
 								<?php
-								$sql5 = "SELECT * FROM cliente";
+								$sql5 = "SELECT * FROM usuarios";
 								$req = $db->prepare($sql5);
 								$req->execute();
 								$linhas = $req->rowCount();
 
 								while ($dados = $req->fetch(PDO::FETCH_ASSOC)) {
-									$id_usuario = $dados['id'];
+									$id_usuario = $dados['id_usuario'];
 									$nome_usuario = $dados['nome'];
 									echo " <option value=\"$id_usuario\">$nome_usuario</option>";
 								}

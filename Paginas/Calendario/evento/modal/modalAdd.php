@@ -17,6 +17,13 @@
 					</div>
 
 					<div class="form-group">
+						<label for="descricao" class="col-sm-2 control-label">Descrição</label>
+						<div class="col-sm-10">
+							<textarea type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
 						<label for="cor" class="col-sm-2 control-label">Cor</label>
 						<div class="col-sm-10">
 							<select name="cor" class="form-control" id="cor">
@@ -39,12 +46,16 @@
 							<select name="convidado" class="form-control" id="convidado">
 								<option value="">Ninguém</option>
 								<?php
-								$sql2 = "SELECT * FROM funcionario";
+								// Verfica quantos usuarios existem dentro do banco de dados para mostrar
+								$sql2 = "SELECT * FROM usuarios WHERE id_usuario!=$id_user";
 								$req = $db->prepare($sql2);
 								$req->execute();
 								$linhas = $req->rowCount();
+
+
 								while ($dados = $req->fetch(PDO::FETCH_ASSOC)) {
-									$id_usuario = $dados['id_fun'];
+									// Pega o resultado de cada linha da tabela e mostra em options
+									$id_usuario = $dados['id_usuario'];
 									$nome_usuario = $dados['nome'];
 									echo " <option value=\"$id_usuario\">$nome_usuario</option>";
 								}

@@ -28,6 +28,7 @@
 				element.bind('click', function() {
 					$('#ModalEdit #id_evento').val(event.id);
 					$('#ModalEdit #titulo').val(event.title);
+					$('#ModalEdit #descricao').val(event.description);
 					$('#ModalEdit #cor').val(event.color);
 					$('#ModalEdit #convidado').val(event.fk_id_destinatario);
 					$('#ModalEdit #remetente').val(event.fk_id_remetente);
@@ -45,8 +46,11 @@
 				edit(event);
 			},
 
+
+			// Cria o evento
 			events: [
 				<?php foreach ($events as $event) :
+					// PROVALMENTE nome de variais sessions
 					$start = explode(" ", $event['inicio']);
 					$end = explode(" ", $event['termino']);
 					if ($start[1] == '00:00:00') {
@@ -62,6 +66,7 @@
 				?> {
 						id: '<?php echo $event['id_evento']; ?>',
 						title: '<?php echo $event['titulo']; ?>',
+						description: '<?php echo $event['descricao']; ?>',
 						start: '<?php echo $start; ?>',
 						end: '<?php echo $end; ?>',
 						color: '<?php echo $event['cor']; ?>',
