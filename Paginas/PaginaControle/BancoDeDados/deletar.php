@@ -47,39 +47,39 @@
     while ($row_func = mysqli_fetch_assoc($resultadoP)) {
 
         // Verifica se são funcionarios
-        $pessoa_id = $row_func['id'];
-        $consulta = mysqli_query($conn, "SELECT * FROM funcionario WHERE pessoa_id = '$pessoa_id' limit 1");
+        $pessoa_id = $row_func['pesId'];
+        $consulta = mysqli_query($conn, "SELECT * FROM funcionario WHERE funPes_id = '$pessoa_id' limit 1");
 
 
         if (mysqli_num_rows($consulta) > 0) { // entra
             echo "<div id='box1'>";
-            echo "<h4>" . $row_func['nome'] . "</h4><hr>";
+            echo "<h4>" . $row_func['pesNome'] . "</h4><hr>";
 
             // Imprime o nome do funcionário na tabela pessoa
-            echo "Email: " . $row_func['email'] . "  |  CPF: " . $row_func['cpf'] . "  |  RG: " . $row_func['rg'] . "<br>";
-            $variavel2 = $row_func['id'];
+            echo "Email: " . $row_func['pesEmail'] . "  |  CPF: " . $row_func['pesCpf'] . "  |  RG: " . $row_func['pesRg'] . "<br>";
+            $variavel2 = $row_func['pesId'];
 
             // Verifica se o nome da pessoa é igual a endereço
 
-            $newId = $row_func['id'];
-            $consulta2 = mysqli_query($conn, "SELECT * FROM endereco WHERE pessoa_id = '$newId' limit 1");
+            $newId = $row_func['pesId'];
+            $consulta2 = mysqli_query($conn, "SELECT * FROM endereco WHERE endPes_id = '$newId' limit 1");
 
 
             // Irá imprimir endereço
             while ($row_func2 = mysqli_fetch_assoc($resultadoE)) {
 
-                if ($row_func2['pessoa_id'] == $newId) {
+                if ($row_func2['endPes_id'] == $newId) {
 
 
-                    echo "Rua: " . $row_func2['rua'] . "  |  Bairro: " . $row_func2['bairro'] . "  |  Cidade: " . $row_func2['cidade']   . "  |  Número: " . $row_func2['nro'] . "<br>";
+                    echo "Rua: " . $row_func2['endRua'] . "  |  Bairro: " . $row_func2['endBairro'] . "  |  Cidade: " . $row_func2['endCidade']   . "  |  Número: " . $row_func2['endNro'] . "<br>";
                     "<br>";
 
 
                     while ($row_func3 = mysqli_fetch_assoc($resultadoT)) {
 
-                        if ($row_func3['pessoa_id'] == $newId) {
-                            echo "Telefone: " . $row_func3['numero'] . "<br>";
-                            echo "<a href='../BancoDeDados/formDoDeletar.php?id= " . $row_func['id'] . "' id='link'>Deletar</a><br><hr>";
+                        if ($row_func3['telPes_id'] == $newId) {
+                            echo "Telefone: " . $row_func3['telNumero'] . "<br>";
+                            echo "<a href='../BancoDeDados/formDoDeletar.php?id= " . $row_func['pesId'] . "' id='link'>Deletar</a><br><hr>";
 
                             break;
                         } else {
@@ -99,7 +99,7 @@
 
 
     //Paginação 
-    $result_pg = "SELECT count(id) AS num_result FROM pessoa";
+    $result_pg = "SELECT count(pesId) AS num_result FROM pessoa";
     $resultado_pg = mysqli_query($conn, $result_pg);
     $row_pg = mysqli_fetch_assoc($resultado_pg);
 

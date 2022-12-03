@@ -16,7 +16,7 @@
 
     $idPagina = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
-    $resut_ser = "DELETE FROM tiposervico WHERE id='$idPagina'";
+    $resut_ser = "DELETE FROM tiposervico WHERE tipId='$idPagina'";
 
 
     $resultado_ser =  mysqli_query($conn, $resut_ser);

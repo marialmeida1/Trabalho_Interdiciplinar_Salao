@@ -15,22 +15,22 @@
     $idPagina = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     // Tabela Pessoa
-    $resut_pessoa = "SELECT * FROM pessoa WHERE id='$idPagina'";
+    $resut_pessoa = "SELECT * FROM pessoa WHERE pesId='$idPagina'";
     $resultado_pessoa =  mysqli_query($conn, $resut_pessoa);
     $row_pessoa = mysqli_fetch_assoc($resultado_pessoa);
 
     // Tabela Endereco
-    $resut_ende = "SELECT * FROM endereco WHERE pessoa_id='$idPagina'";
+    $resut_ende = "SELECT * FROM endereco WHERE endPes_id='$idPagina'";
     $resultado_ende =  mysqli_query($conn, $resut_ende);
     $row_ende = mysqli_fetch_assoc($resultado_ende);
 
     // Tabela Telefone
-    $resut_tel = "SELECT * FROM telefone WHERE pessoa_id='$idPagina'";
+    $resut_tel = "SELECT * FROM telefone WHERE telPes_id='$idPagina'";
     $resultado_tel =  mysqli_query($conn, $resut_tel);
     $row_tel = mysqli_fetch_assoc($resultado_tel);
 
     // Tabela Funcionario
-    $resut_func = "SELECT * FROM funcionario WHERE pessoa_id='$idPagina'";
+    $resut_func = "SELECT * FROM funcionario WHERE funPes_id='$idPagina'";
     $resultado_func =  mysqli_query($conn, $resut_func);
     $row_func = mysqli_fetch_assoc($resultado_func);
 
@@ -54,10 +54,10 @@
 
     //Verifica 
 
-    $tbPessoa = "UPDATE  trabalhosalao.pessoa SET nome='$nome', email='$email', cpf='$cpf', rg='$rg' WHERE id='$id' ";
-    $tbEndereco = "UPDATE  trabalhosalao.endereco SET rua='$rua', bairro='$bairro', cidade='$city' WHERE pessoa_id='$id' ";
-    $tbTelefone = "UPDATE  trabalhosalao.telefone SET numero='$tel' WHERE pessoa_id='$id' ";
-    $tbFuncionario = "UPDATE  trabalhosalao.funcionario SET senha='$senha' WHERE pessoa_id='$id' ";
+    $tbPessoa = "UPDATE  trabalhosalao.pessoa SET pesNome='$nome', pesEmail='$email', pesCpf='$cpf', pesRg='$rg' WHERE pesId='$id' ";
+    $tbEndereco = "UPDATE  trabalhosalao.endereco SET endRua='$rua', endBairro='$bairro', endCidade='$city' WHERE endPes_id='$id' ";
+    $tbTelefone = "UPDATE  trabalhosalao.telefone SET telNumero='$tel' WHERE telPes_id='$id' ";
+    $tbFuncionario = "UPDATE  trabalhosalao.funcionario SET funSenha='$senha' WHERE funPes_id='$id' ";
 
     $tbPessoa_resultado =  mysqli_query($conn, $tbPessoa);
     $tbEndereco_resultado =  mysqli_query($conn, $tbEndereco);

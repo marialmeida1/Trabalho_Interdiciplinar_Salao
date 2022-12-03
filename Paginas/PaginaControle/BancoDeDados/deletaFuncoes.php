@@ -16,10 +16,10 @@
 
     $idPagina = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
-    $resut_ende = "DELETE FROM endereco WHERE pessoa_id='$idPagina'";
-    $resut_tel = "DELETE FROM telefone WHERE pessoa_id='$idPagina'";
-    $resut_func = "DELETE FROM funcionario WHERE pessoa_id='$idPagina'";
-    $resut_pessoa = "DELETE FROM pessoa WHERE id='$idPagina'";
+    $resut_ende = "DELETE FROM endereco WHERE endPes_id='$idPagina'";
+    $resut_tel = "DELETE FROM telefone WHERE telPes_id='$idPagina'";
+    $resut_func = "DELETE FROM funcionario WHERE funPes_id='$idPagina'";
+    $resut_pessoa = "DELETE FROM pessoa WHERE pesId='$idPagina'";
 
 
     $resultado_ende =  mysqli_query($conn, $resut_ende);

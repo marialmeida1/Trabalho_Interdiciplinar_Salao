@@ -173,21 +173,19 @@
                             <div class="modal-body">
                                 <form action="editarFuncoesSer.php" method="post">
 
-                                    <?php include("editaFuncoes.php"); ?>
-
 
                                     <?php include("editarFuncoesSer.php"); ?>
                                     <div class="form-outline mb-4">
-                                        <input type="hidden" name="id" value="<?php echo $row_ser['id']; ?>">
-                                        <input type="text" id="nome" class="form-control textModal" placeholder="Nome" name="nome" value="<?php echo $row_ser['nome']; ?>" />
+                                        <input type="hidden" name="id" value="<?php echo $row_ser['tipId']; ?>">
+                                        <input type="text" id="nome" class="form-control textModal" placeholder="Nome" name="nome" value="<?php echo $row_ser['tipNome']; ?>" />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="email" class="form-control textModal" placeholder="Email" name="desc" value="<?php echo $row_ser['descricao']; ?>" />
+                                        <input type="text" id="email" class="form-control textModal" placeholder="Email" name="desc" value="<?php echo $row_ser['tipDescricao']; ?>" />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="number" id="senha" class="form-control textModal" placeholder="Senha" name="valor" value="<?php echo $row_ser['valorUnitario']; ?>" />
+                                        <input type="number" id="senha" class="form-control textModal" placeholder="Senha" name="valor" value="<?php echo $row_ser['tipValorUnitario']; ?>" />
                                     </div>
                                     <br>
                                     <button type=</form>

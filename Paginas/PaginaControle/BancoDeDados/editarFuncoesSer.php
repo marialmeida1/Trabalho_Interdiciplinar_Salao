@@ -15,7 +15,7 @@
     $idPagina = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     // Tabela Pessoa
-    $resut_ser = "SELECT * FROM tiposervico WHERE id='$idPagina'";
+    $resut_ser = "SELECT * FROM tiposervico WHERE tipId='$idPagina'";
     $resultado_ser =  mysqli_query($conn, $resut_ser);
     $row_ser = mysqli_fetch_assoc($resultado_ser);
 
@@ -27,8 +27,7 @@
     $id = filter_input(INPUT_POST, 'id');
 
 
-    $tbSer = "UPDATE  trabalhosalao.tiposervico SET nome='$nome', descricao='$desc', valorUnitario='$valor' WHERE id='$id' ";
-
+    $tbSer = "UPDATE  trabalhosalao.tiposervico SET tipNome='$nome', tipDescricao='$desc', tipValorUnitario='$valor' WHERE tipId='$id' ";
     $tbSer_resultado =  mysqli_query($conn, $tbSer);
 
     /*if (mysqli_affected_rows($conn)) {

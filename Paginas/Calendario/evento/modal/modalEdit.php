@@ -16,12 +16,7 @@
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label for="descricao" class="col-sm-2 control-label">Descrição</label>
-						<div class="col-sm-10">
-							<textarea type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição"></textarea>
-						</div>
-					</div>
+
 
 					<div class="form-group">
 						<label for="cor" class="col-sm-2 control-label">Cor</label>
@@ -46,7 +41,7 @@
 							<select name="convidado" class="form-control" id="convidado" disabled>
 								<option value="">Ninguém</option>
 								<?php
-								$sql6 = "SELECT * FROM cliente";
+								$sql6 = "SELECT * FROM funcionario";
 								$req = $db->prepare($sql6);
 								$req->execute();
 								$linhas = $req->rowCount();

@@ -17,13 +17,6 @@
 					</div>
 
 					<div class="form-group">
-						<label for="descricao" class="col-sm-2 control-label">Descrição</label>
-						<div class="col-sm-10">
-							<textarea type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição"></textarea>
-						</div>
-					</div>
-
-					<div class="form-group">
 						<label for="cor" class="col-sm-2 control-label">Cor</label>
 						<div class="col-sm-10">
 							<select name="cor" class="form-control" id="cor">
@@ -46,12 +39,12 @@
 							<select name="convidado" class="form-control" id="convidado">
 								<option value="">Ninguém</option>
 								<?php
-								$sql2 = "SELECT * FROM cliente WHERE id!=$id_user";
+								$sql2 = "SELECT * FROM funcionario";
 								$req = $db->prepare($sql2);
 								$req->execute();
 								$linhas = $req->rowCount();
 								while ($dados = $req->fetch(PDO::FETCH_ASSOC)) {
-									$id_usuario = $dados['id'];
+									$id_usuario = $dados['id_fun'];
 									$nome_usuario = $dados['nome'];
 									echo " <option value=\"$id_usuario\">$nome_usuario</option>";
 								}

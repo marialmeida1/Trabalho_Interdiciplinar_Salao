@@ -175,38 +175,38 @@
 
                                     <?php include("editaFuncoes.php"); ?>
                                     <div class="form-outline mb-4">
-                                        <input type="hidden" name="id" value="<?php echo $row_pessoa['id']; ?>">
-                                        <input type="text" id="nome" class="form-control textModal" placeholder="Nome" name="nome" value="<?php echo $row_pessoa['nome']; ?>" />
+                                        <input type="hidden" name="id" value="<?php echo $row_pessoa['pesId']; ?>">
+                                        <input type="text" id="nome" class="form-control textModal" placeholder="Nome" name="nome" value="<?php echo $row_pessoa['pesNome']; ?>" />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="email" class="form-control textModal" placeholder="Email" name="email" value="<?php echo $row_pessoa['email']; ?>" />
+                                        <input type="email" id="email" class="form-control textModal" placeholder="Email" name="email" value="<?php echo $row_pessoa['pesEmail']; ?>" />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="senha" class="form-control textModal" placeholder="Senha" name="senha" value="<?php echo $row_func['senha']; ?>" />
+                                        <input type="password" id="senha" class="form-control textModal" placeholder="Senha" name="senha" value="<?php echo $row_func['funSenha']; ?>" />
                                     </div>
 
                                     <div class="input-group">
-                                        <input type="text" id="bairro" class="form-control textModal" placeholder="CPF" style=" margin: auto; margin-right: 10%;" name="cpf" value="<?php echo $row_pessoa['cpf']; ?>" />
-                                        <input type="text" id="numendereco" class="form-control textModal" placeholder="RG" style=" margin: auto;" name="rg" value="<?php echo $row_pessoa['rg']; ?>" />
+                                        <input type="text" id="bairro" class="form-control textModal" placeholder="CPF" style=" margin: auto; margin-right: 10%;" name="cpf" value="<?php echo $row_pessoa['pesCpf']; ?>" />
+                                        <input type="text" id="numendereco" class="form-control textModal" placeholder="RG" style=" margin: auto;" name="rg" value="<?php echo $row_pessoa['pesRg']; ?>" />
                                     </div>
                                     <br>
 
                                     <div class="form-outline mb-4">
-                                        <input type="tel" id="telefone" class="form-control textModal" placeholder="Telefone" name="tel" value="<?php echo $row_tel['numero']; ?>" />
+                                        <input type="tel" id="telefone" class="form-control textModal" placeholder="Telefone" name="tel" value="<?php echo $row_tel['telNumero']; ?>" />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="cidade" class="form-control textModal" placeholder="Cidade" name="city" value="<?php echo $row_ende['cidade']; ?>" />
+                                        <input type="text" id="cidade" class="form-control textModal" placeholder="Cidade" name="city" value="<?php echo $row_ende['endCidade']; ?>" />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="cidade" class="form-control textModal" placeholder="Rua" name="rua" value="<?php echo $row_ende['rua']; ?>" />
+                                        <input type="text" id="cidade" class="form-control textModal" placeholder="Rua" name="rua" value="<?php echo $row_ende['endRua']; ?>" />
                                     </div>
                                     <div class="input-group">
 
-                                        <input type="text" id="bairro" class="form-control textModal" placeholder="Bairro" style=" margin: auto; margin-right: 10%;" name="bairro" value="<?php echo $row_ende['bairro']; ?>" />
+                                        <input type="text" id="bairro" class="form-control textModal" placeholder="Bairro" style=" margin: auto; margin-right: 10%;" name="bairro" value="<?php echo $row_ende['endBairro']; ?>" />
 
 
                                         <input type="number" id="numendereco" class="form-control textModal" placeholder="Numero" style=" margin: auto;" name="numCasa" />

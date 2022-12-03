@@ -22,7 +22,7 @@
 
 
     //Verifica 
-    $verifica = mysqli_query($conn, "SELECT * FROM tiposervico WHERE tiposervico.nome = '$nome' limit 1");
+    $verifica = mysqli_query($conn, "SELECT * FROM tiposervico WHERE tiposervico.tipNome = '$nome' limit 1");
 
 
     if (mysqli_num_rows($verifica) > 0) {
@@ -33,7 +33,7 @@
         if (empty($nome) || empty($desc) || empty($valor)) {
             echo "<script language='javascript'type='text/javascript'>alert('Há dados vazios!');window.location.href='../Paginas/CriarServ.php'</script>";
         } else {
-            $tbSer = "INSERT INTO trabalhosalao.tiposervico(nome, descricao, valorUnitario) VALUES ('$nome', '$desc', '$valor')";
+            $tbSer = "INSERT INTO trabalhosalao.tiposervico(tipNome, tipDescricao, tipValorunitario) VALUES ('$nome', '$desc', '$valor')";
 
             if ($conn->query($tbSer) === TRUE) {
                 echo "<script language='javascript'type='text/javascript'>window.location.href='../Paginas/CriarServ.php'</script>";

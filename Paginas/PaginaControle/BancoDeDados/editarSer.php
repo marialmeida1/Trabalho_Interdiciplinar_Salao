@@ -40,16 +40,16 @@
 
     while ($row_func = mysqli_fetch_assoc($resultado)) {
         echo "<div id='box1'>";
-        echo "<h4>" . $row_func['nome'] . "</h4><hr>";
-        echo "Descrição: " . $row_func['descricao'] . "  |  Valor: " . $row_func['valorUnitario'] . "<br>";
-        echo "<a href='../BancoDeDados/formDoEditarSer.php?id= " . $row_func['id'] . "' id='link'>Editar</a><br><hr>";
+        echo "<h4>" . $row_func['tipNome'] . "</h4><hr>";
+        echo "Descrição: " . $row_func['tipDescricao'] . "  |  Valor: " . $row_func['tipValorUnitario'] . "<br>";
+        echo "<a href='../BancoDeDados/formDoEditarSer.php?id= " . $row_func['tipId'] . "' id='link'>Editar</a><br><hr>";
         echo "</div>";
     }
 
 
 
     //Paginação 
-    $result_pg = "SELECT count(id) AS num_result FROM pessoa";
+    $result_pg = "SELECT count(pesId) AS num_result FROM pessoa";
     $resultado_pg = mysqli_query($conn, $result_pg);
     $row_pg = mysqli_fetch_assoc($resultado_pg);
 

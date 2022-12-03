@@ -174,32 +174,25 @@
                                 <form action="editaFuncoes.php" method="post">
 
                                     <div class="form-outline mb-4">
-                                        <?php include("deletaFuncoesSer.php") ?>
+                                        <?php include("deletaFuncoes.php") ?>
                                         <br>
                                         <h5>Deseja realmente deletar?</h5>
 
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary " data-dismiss="modal">Fechar</button>
-                                        <button type="submit" class="btn btn" style="background-color: #cc7f91; color: white;" onclick="enviar()">Salvar
-                                            alterações</button>
+                                        <button type="submit" class="btn btn" style="background-color: #cc7f91; color: white;">Deletar
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
-                            <button type=</form>
-                        </div>
-
-                        <?php
-
-                        ?>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn" style="background-color: #cc7f91; color: white;">Deletar
-                            </button>
                             </form>
                         </div>
+                        <button type=</form>
                     </div>
                 </div>
         </div>
+    </div>
 
 
 

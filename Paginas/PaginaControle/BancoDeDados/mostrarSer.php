@@ -43,7 +43,7 @@
         <article class="stat-cards-item " id="caixaFunc">
             <div class="stat-cards-info" id="tamanho">
                 <?php
-                echo "<h4>" . $row_func['nome'] . "</h4>";
+                echo "<h4>" . $row_func['tipNome'] . "</h4>";
                 ?>
             </div>
         </article>
@@ -52,7 +52,7 @@
             <div class="stat-cards-info" id="tamanho">
                 <?php
 
-                echo "Descrição: " . $row_func['descricao'] . "  |  Valor: " . $row_func['valorUnitario'] . "<br>";
+                echo "Descrição: " . $row_func['tipDescricao'] . "  |  Valor: " . $row_func['tipValorUnitario'] . "<br>";
 
                 ?>
             </div>
@@ -63,7 +63,7 @@
 
 
     //Paginação 
-    $result_pg = "SELECT count(id) AS num_result FROM tiposervico";
+    $result_pg = "SELECT count(tipId) AS num_result FROM tiposervico";
     $resultado_pg = mysqli_query($conn, $result_pg);
     $row_pg = mysqli_fetch_assoc($resultado_pg);
 

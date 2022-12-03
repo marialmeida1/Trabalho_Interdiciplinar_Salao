@@ -29,7 +29,7 @@
 
 
     //Verifica 
-    $verifica = mysqli_query($conn, "SELECT * FROM pessoa WHERE pessoa.email = '$email' limit 1");
+    $verifica = mysqli_query($conn, "SELECT * FROM pessoa WHERE pessoa.pesEmail = '$email' limit 1");
 
 
     if (mysqli_num_rows($verifica) > 0) {
@@ -40,17 +40,17 @@
         if (empty($nome) || empty($email) || empty($tel) || empty($senha) || empty($city) || empty($rua) || empty($bairro)  || empty($cpf) || empty($rg) || empty($numCasa)) {
             echo "<script language='javascript'type='text/javascript'>alert('Há dados vazios!');window.location.href='../Paginas/CriarFunc.php'</script>";
         } else {
-            $tbPessoa = "INSERT INTO trabalhosalao.pessoa(nome, email, cpf, rg) VALUES ('$nome', '$email', '$cpf', '$rg')";
+            $tbPessoa = "INSERT INTO trabalhosalao.pessoa(pesNome, pesEmail, pesCpf, pesRg) VALUES ('$nome', '$email', '$cpf', '$rg')";
 
             if ($conn->query($tbPessoa) === TRUE) {
                 $last_id = $conn->insert_id;
-                $tbEndereco = "INSERT INTO trabalhosalao.endereco(rua, nro, bairro, cidade, pessoa_id) VALUES ('$rua', $numCasa, '$bairro', '$city', '$last_id')";
+                $tbEndereco = "INSERT INTO trabalhosalao.endereco(endRua, endNro, endBairro, endCidade, endPes_id) VALUES ('$rua', $numCasa, '$bairro', '$city', '$last_id')";
 
                 if ($conn->query($tbEndereco) === TRUE) {
-                    $tbTelefone = "INSERT INTO trabalhosalao.telefone(numero, pessoa_id) VALUES ('$tel', '$last_id')";
+                    $tbTelefone = "INSERT INTO trabalhosalao.telefone(telNumero, telPes_id) VALUES ('$tel', '$last_id')";
 
                     if ($conn->query($tbTelefone) === TRUE) {
-                        $tbFuncionario = "INSERT INTO trabalhosalao.funcionario(senha, pessoa_id) VALUES (MD5('$senha'), '$last_id')";
+                        $tbFuncionario = "INSERT INTO trabalhosalao.funcionario(funSenha, funPes_id) VALUES (MD5('$senha'), '$last_id')";
 
                         if ($conn->query($tbFuncionario) === TRUE) {
                             echo "<script language='javascript'type='text/javascript'>window.location.href='../Paginas/CriarFunc.php'</script>";

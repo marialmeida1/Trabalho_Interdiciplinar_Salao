@@ -27,7 +27,7 @@
 
 
     //Verifica 
-    $verifica = mysqli_query($conn, "SELECT * FROM pessoa WHERE pessoa.email = '$email' limit 1");
+    $verifica = mysqli_query($conn, "SELECT * FROM pessoa WHERE pessoa.pesEmail = '$email' limit 1");
 
 
     if (mysqli_num_rows($verifica) > 0) {
@@ -40,17 +40,17 @@
 
             echo "<script language='javascript'type='text/javascript'>alert('Todos os campos devem estar preenchidos!');window.location.href='../Cadastro/index.html'</script>";
         } else {
-            $tbPessoa = "INSERT INTO trabalhosalao.pessoa(nome, email, cpf, rg) VALUES ('$nome', '$email', NULL, NULL)";
+            $tbPessoa = "INSERT INTO trabalhosalao.pessoa(pesNome, pesEmail, pesCpf, pesRg) VALUES ('$nome', '$email', NULL, NULL)";
 
             if ($conn->query($tbPessoa) === TRUE) {
                 $last_id = $conn->insert_id;
-                $tbEndereco = "INSERT INTO trabalhosalao.endereco(rua, nro, bairro, cidade, pessoa_id) VALUES ('$rua', $numCasa, '$bairro', '$city', '$last_id')";
+                $tbEndereco = "INSERT INTO trabalhosalao.endereco(endRua, endNro, endBairro, endCidade, endPes_id) VALUES ('$rua', $numCasa, '$bairro', '$city', '$last_id')";
 
                 if ($conn->query($tbEndereco) === TRUE) {
-                    $tbTelefone = "INSERT INTO trabalhosalao.telefone(numero, pessoa_id) VALUES ('$tel', '$last_id')";
+                    $tbTelefone = "INSERT INTO trabalhosalao.telefone(telNumero, telPes_id) VALUES ('$tel', '$last_id')";
 
                     if ($conn->query($tbTelefone) == TRUE) {
-                        $tbCliente = "INSERT INTO trabalhosalao.cliente(senha, pessoa_id) VALUES (MD5('$senha'), '$last_id')";
+                        $tbCliente = "INSERT INTO trabalhosalao.cliente(cliSenha, cliPes_id) VALUES (MD5('$senha'), '$last_id')";
 
                         if ($conn->query($tbCliente) == TRUE) {
                             echo "window.location.href='../Cadastro/index.html'</script>";
