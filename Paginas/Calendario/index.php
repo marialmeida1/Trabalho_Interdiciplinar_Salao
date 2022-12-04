@@ -917,7 +917,7 @@ if (isset($_POST['from'])) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Agregar nuevo evento</h4>
+                    <h4 class="modal-title" id="myModalLabel">Agendar Novo Horário</h4>
                 </div>
                 <div class="modal-body">
                     <form action="" method="post">

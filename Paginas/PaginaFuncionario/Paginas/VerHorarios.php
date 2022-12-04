@@ -1,81 +1,69 @@
+
 <?php
 
 include("/xampp/htdocs/TrabalhoSalao/Paginas/BancoDeDados/conexaoBD.php");
 
 // Consulta tabelas
-$resultPessoa = "SELECT * FROM pessoa ";
-$resultEnde = "SELECT * FROM endereco ";
-$resultTelefone = "SELECT * FROM telefone ";
-$resultFuncionario = "SELECT * FROM funcionario";
+$resultPessoa = "SELECT * FROM pessoa";
+$resultFun = "SELECT * FROM funcionario ";
+$resultTipSer = "SELECT * FROM tiposervico ";
+$resultEvento = "SELECT * FROM evento ";
+
 
 $resultadoP = mysqli_query($conn, $resultPessoa);
-$resultadoE = mysqli_query($conn, $resultEnde);
-$resultadoT = mysqli_query($conn, $resultTelefone);
-$resultadoF = mysqli_query($conn, $resultFuncionario);
+$resultadoF = mysqli_query($conn, $resultFun);
+$resultadoS = mysqli_query($conn, $resultTipSer);
+$resultadoE = mysqli_query($conn, $resultEvento);
 
 
-// Mostra resultado tabelas
-
-
-
+// Pega valores unitários ta tabela pessoa
 while ($row_func = mysqli_fetch_assoc($resultadoP)) {
 
-    // Verifica se são funcionarios
+    // Pega o id da pessoa 
     $pessoa_id = $row_func['pesId'];
+
+    // Verifica se na tabela funcionário existe esse id
     $consulta = mysqli_query($conn, "SELECT * FROM funcionario WHERE funPes_id = '$pessoa_id' limit 1");
 
+    // Se ele existir vai imprimir o nome
+    if (mysqli_num_rows($consulta) > 0) {
 
-    if (mysqli_num_rows($consulta) > 0) { // entra
+        // Imprime o nome
+        echo "<div id='box1'>";
+        echo "<h4>" . $row_func['pesNome'] . "</h4><hr>";
 
-        // html
-?>
-        <article class="stat-cards-item " id="caixaFunc">
-            <div class="stat-cards-info" id="tamanho">
-                <?php
-                echo "<h4>" . $row_func['pesNome'] . "</h4>";
-                ?>
-            </div>
-        </article>
+        // Pega novamente o id da pessoa
+        $newId = $row_func['pesId'];
 
-        <article class="stat-cards-item " id="tamanho">
-            <div class="stat-cards-info" id="tamanho">
-        <?php
+        // Pega valores unitarios ta tabela tipo de funcionários
+        while ($row_func2 = mysqli_fetch_assoc($resultadoF)) {
 
+            // Pega o id de funcionario
+            $idFuncionario = $row_func2["funId"];
 
-        $pegarIdFun = "SELECT * FROM funcionario";
+            while ($row_func3 = mysqli_fetch_assoc($resultadoE)) {
+                $soma = 0;
+                if ($row_func3["eveFun_id"] == $idFuncionario) {
+                    $soma = $soma + 1;
+                    echo "Serviço " . $soma . "<br>";
 
+                    echo "Início: " . $row_func3["eveInicioNormal"];
+                    echo " | Término: " . $row_func3["eveFimNormal"] . "<br>";
 
-
-        // Irá imprimir endereço
-        while ($row_func2 = mysqli_fetch_assoc($resultadoE)) {
-
-            if ($row_func2['endPes_id'] == $newId) {
-
-
-                echo "Rua: " . $row_func2['endRua'] . "  |  Bairro: " . $row_func2['endBairro'] . "  |  Cidade: " . $row_func2['endCidade']  . "  |  Número: " . $row_func2['endNro'] . "<br>";
-
-
-                while ($row_func3 = mysqli_fetch_assoc($resultadoT)) {
-
-                    if ($row_func3['telPes_id'] == $newId) {
-                        echo "Telefone: " . $row_func3['telNumero'] . "<br>";
-                        break;
-                    } else {
+                    // Pega id serviço
+                    $idServico = $row_func3["eveTip_id"];
+                    while ($row_func4 = mysqli_fetch_assoc($resultadoS)) {
+                        if ($row_func4["tipId"] == $idServico) {
+                            echo "Serviço: " . $row_func4["tipNome"] . "<br>";
+                            break;
+                        }
                     }
                 }
-                break;
-            } else {
             }
         }
-        echo "<hr>";
+        echo "</div>";
     } else {
     }
 }
 
-
-        ?>
-            </div>
-        </article>
-        <?php
-
-        ?>
+?>
