@@ -25,7 +25,6 @@
 
 
 
-
     //Verifica 
     $verifica = mysqli_query($conn, "SELECT * FROM pessoa WHERE pessoa.pesEmail = '$email' limit 1");
 
@@ -53,7 +52,7 @@
                         $tbCliente = "INSERT INTO trabalhosalao.cliente(cliSenha, cliPes_id) VALUES (MD5('$senha'), '$last_id')";
 
                         if ($conn->query($tbCliente) == TRUE) {
-                            echo "window.location.href='../Cadastro/index.html'</script>";
+                            echo "window.location.href='./logar.php'</script>";
                         }
                     }
                 } else {
@@ -63,15 +62,6 @@
                 echo "Error: " . $tbPessoa . "<br>" . $conn->error;
             }
         }
-
-
-
-
-
-
-
-
-        echo  "<br>" .  "<br>" . "Não existe";
     }
 
     $conn->close();
