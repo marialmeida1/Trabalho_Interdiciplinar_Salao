@@ -25,7 +25,7 @@
 
 
 
-    //Verifica 
+    // Consulta emails que existem dentro da tabela pessoa, se caso algum existir não é possível inserir
     $verifica = mysqli_query($conn, "SELECT * FROM pessoa WHERE pessoa.pesEmail = '$email' limit 1");
 
 
@@ -39,16 +39,24 @@
 
             echo "<script language='javascript'type='text/javascript'>alert('Todos os campos devem estar preenchidos!');window.location.href='../Cadastro/index.html'</script>";
         } else {
+
+            // Insere na tabela Pessoa
             $tbPessoa = "INSERT INTO trabalhosalao.pessoa(pesNome, pesEmail, pesCpf, pesRg) VALUES ('$nome', '$email', NULL, NULL)";
 
             if ($conn->query($tbPessoa) === TRUE) {
                 $last_id = $conn->insert_id;
+
+                // Insere no Endereço
                 $tbEndereco = "INSERT INTO trabalhosalao.endereco(endRua, endNro, endBairro, endCidade, endPes_id) VALUES ('$rua', $numCasa, '$bairro', '$city', '$last_id')";
 
                 if ($conn->query($tbEndereco) === TRUE) {
+
+                    // Insere no Telefone
                     $tbTelefone = "INSERT INTO trabalhosalao.telefone(telNumero, telPes_id) VALUES ('$tel', '$last_id')";
 
                     if ($conn->query($tbTelefone) == TRUE) {
+
+                        // Insere em Cliente
                         $tbCliente = "INSERT INTO trabalhosalao.cliente(cliSenha, cliPes_id) VALUES (MD5('$senha'), '$last_id')";
 
                         if ($conn->query($tbCliente) == TRUE) {

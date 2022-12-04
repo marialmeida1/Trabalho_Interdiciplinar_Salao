@@ -24,6 +24,7 @@ date_default_timezone_set("America/Santiago");
 
 // incluimos el archivo de funciones
 include 'funciones.php';
+include("../BancoDeDados/conexaoBD.php");
 
 // incluimos el archivo de configuracion
 include 'config.php';
@@ -57,7 +58,7 @@ if (isset($_POST['from'])) {
 
         if ($consultarSer > 0) {
             $resultTipSer = "SELECT * FROM tiposervico";
-            $resultSer = mysqli_query($conexion, $resultTipSer);
+            $resultSer = mysqli_query($conn, $resultTipSer);
 
             while ($rowSer = mysqli_fetch_assoc($resultSer)) {
                 $idTipo = $rowSer["tipId"];
@@ -70,18 +71,15 @@ if (isset($_POST['from'])) {
 
         if ($consultarPes > 0) {
             $resultPessoa = "SELECT * FROM pessoa";
-            $resultPes = mysqli_query($conexion, $resultPessoa);
+            $resultPes = mysqli_query($conn, $resultPessoa);
 
             while ($rowPes = mysqli_fetch_assoc($resultPes)) {
                 $idPes = $rowPes["pesId"];
+                $resultFuncionario = "SELECT * FROM funcionario";
+                $resultFun = mysqli_query($conn, $resultFuncionario);
 
-                $consultarFun = "SELECT * FROM funcionario WHERE funcionario.funPes_id = $idPes LIMIT 1";
-
-                if ($consultarFun > 0) {
-                    $resultFuncionario = "SELECT * FROM funcionario";
-                    $resultFun = mysqli_query($conexion, $resultFuncionario);
-
-                    while ($rowFun = mysqli_fetch_assoc($resultFun)) {
+                while ($rowFun = mysqli_fetch_assoc($resultFun)) {
+                    if ($rowFun["funPes_id"] == $idPes) {
                         $idFun = $rowFun["funId"];
                     }
                 }
@@ -127,7 +125,7 @@ if (isset($_POST['from'])) {
 
 <head>
     <meta charset="utf-8">
-    <title>Calendario</title>
+    <title>Calendario - Beauty Salon</title>
     <link rel="stylesheet" type="text/css" href="<?php $base_url ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php $base_url ?>js/calendar.js">
     <link href="<?php $base_url ?>css/font-awesome.min.css" rel="stylesheet">
@@ -139,6 +137,7 @@ if (isset($_POST['from'])) {
     <script src="<?php $base_url ?>js/bootstrap.min.js"></script>
     <script src="<?php $base_url ?>js/bootstrap-datetimepicker.js"></script>
     <link rel="stylesheet" href="<?php $base_url ?>css/bootstrap-datetimepicker.min.css" />
+    <link rel="shortcut icon" href="../../Logo/Letra.svg" type="image/x-icon">
 
 </head>
 </head>
